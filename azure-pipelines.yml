@@ -1,0 +1,26 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - develop
+      - release/*
+      - ProductionSupport/*
+  paths:
+    include:
+      - cicd/pipelines/common/pre-commit-ci.yaml
+      - src
+      - cicd
+
+pool:
+  vmImage: ubuntu-latest
+
+
+steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
